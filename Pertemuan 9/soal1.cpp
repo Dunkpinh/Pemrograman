@@ -28,7 +28,7 @@ void randomArray(int data[], int size, int minValue, int maxValue) {
 }
 
 // Fungsi merge untuk menggabungkan dua bagian array
-void merge(int data[], int left, int mid, int right) {
+void array_merge(int data[], int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
@@ -55,12 +55,12 @@ void merge(int data[], int left, int mid, int right) {
 }
 
 // Fungsi rekursif merge sort
-void mergeSort(int data[], int left, int right) {
+void merge_sort(int data[], int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
-        mergeSort(data, left, mid);
-        mergeSort(data, mid + 1, right);
-        merge(data, left, mid, right);
+        merge_sort(data, left, mid);
+        merge_sort(data, mid + 1, right);
+        array_merge(data, left, mid, right);
     }
 }
 
@@ -72,6 +72,6 @@ int main() {
     isiArray(data, n);
     cout << endl;
 
-    mergeSort(data, 0, n - 1);
+    merge_sort(data, 0, n - 1);
     printArray(data, n);
 }
